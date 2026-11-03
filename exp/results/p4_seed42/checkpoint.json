@@ -1,0 +1,447 @@
+{
+  "config": {
+    "generations": 30,
+    "population_size": 16,
+    "games_per_candidate": 2,
+    "seed": 42,
+    "workers": 4,
+    "max_pieces": 80,
+    "elite_count": 2,
+    "tournament_size": 3,
+    "mutation_sigma": 0.35,
+    "crossover_rate": 0.7,
+    "backend": "auto",
+    "engine_spec": "contracts:Engine",
+    "policy_spec": "ai.policy:policy"
+  },
+  "history": [
+    {
+      "generation": 1,
+      "best_fitness": 47.0,
+      "mean_fitness": 41.421875,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 9.0,
+        "holes": 7.0,
+        "height": 0.5,
+        "bumpiness": 0.5,
+        "wells": 0.3,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 2,
+      "best_fitness": 47.0,
+      "mean_fitness": 39.390625,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 9.0,
+        "holes": 7.0,
+        "height": 0.5,
+        "bumpiness": 0.5,
+        "wells": 0.3,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 3,
+      "best_fitness": 47.0,
+      "mean_fitness": 42.828125,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 9.0,
+        "holes": 7.0,
+        "height": 0.5,
+        "bumpiness": 0.5,
+        "wells": 0.3,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 4,
+      "best_fitness": 47.5,
+      "mean_fitness": 37.515625,
+      "best_lines": 30.0,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 7.0,
+        "height": 0.0,
+        "bumpiness": 1.6957603419207719,
+        "wells": 0.3,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 5,
+      "best_fitness": 48.5,
+      "mean_fitness": 43.34375,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 16.614234446143183,
+        "height": 0.0,
+        "bumpiness": 1.9626677998099356,
+        "wells": 0.9387061155482082,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 6,
+      "best_fitness": 48.5,
+      "mean_fitness": 36.75,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 16.614234446143183,
+        "height": 0.0,
+        "bumpiness": 1.9626677998099356,
+        "wells": 0.9387061155482082,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 7,
+      "best_fitness": 48.5,
+      "mean_fitness": 39.375,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 16.614234446143183,
+        "height": 0.0,
+        "bumpiness": 1.9626677998099356,
+        "wells": 0.9387061155482082,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 8,
+      "best_fitness": 48.5,
+      "mean_fitness": 45.40625,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 16.614234446143183,
+        "height": 0.0,
+        "bumpiness": 1.9626677998099356,
+        "wells": 0.9387061155482082,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 9,
+      "best_fitness": 48.5,
+      "mean_fitness": 40.578125,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 16.614234446143183,
+        "height": 0.0,
+        "bumpiness": 1.9626677998099356,
+        "wells": 0.9387061155482082,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 10,
+      "best_fitness": 48.5,
+      "mean_fitness": 37.484375,
+      "best_lines": 30.5,
+      "best_weights": {
+        "lines": 0.0,
+        "holes": 16.614234446143183,
+        "height": 0.0,
+        "bumpiness": 1.9626677998099356,
+        "wells": 0.9387061155482082,
+        "landing_height": 0.1
+      }
+    },
+    {
+      "generation": 11,
+      "best_fitness": 49.0,
+      "mean_fitness": 44.6875,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 4.6520674045755905,
+        "holes": 20.0,
+        "height": 0.0,
+        "bumpiness": 0.522052880649949,
+        "wells": 0.0,
+        "landing_height": 0.18625906825280142
+      }
+    },
+    {
+      "generation": 12,
+      "best_fitness": 49.0,
+      "mean_fitness": 41.203125,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 4.6520674045755905,
+        "holes": 20.0,
+        "height": 0.0,
+        "bumpiness": 0.522052880649949,
+        "wells": 0.0,
+        "landing_height": 0.18625906825280142
+      }
+    },
+    {
+      "generation": 13,
+      "best_fitness": 49.0,
+      "mean_fitness": 45.0,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 10.276561621130428,
+        "holes": 18.512400219759485,
+        "height": 0.1783829778580278,
+        "bumpiness": 0.64855654590614,
+        "wells": 0.11306614565696378,
+        "landing_height": 0.2401062080958025
+      }
+    },
+    {
+      "generation": 14,
+      "best_fitness": 49.0,
+      "mean_fitness": 45.96875,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 10.276561621130428,
+        "holes": 18.512400219759485,
+        "height": 0.1783829778580278,
+        "bumpiness": 0.64855654590614,
+        "wells": 0.11306614565696378,
+        "landing_height": 0.2401062080958025
+      }
+    },
+    {
+      "generation": 15,
+      "best_fitness": 49.0,
+      "mean_fitness": 38.75,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 10.276561621130428,
+        "holes": 18.512400219759485,
+        "height": 0.1783829778580278,
+        "bumpiness": 0.64855654590614,
+        "wells": 0.11306614565696378,
+        "landing_height": 0.2401062080958025
+      }
+    },
+    {
+      "generation": 16,
+      "best_fitness": 49.0,
+      "mean_fitness": 44.03125,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 10.276561621130428,
+        "holes": 18.512400219759485,
+        "height": 0.1783829778580278,
+        "bumpiness": 0.64855654590614,
+        "wells": 0.11306614565696378,
+        "landing_height": 0.2401062080958025
+      }
+    },
+    {
+      "generation": 17,
+      "best_fitness": 49.0,
+      "mean_fitness": 42.140625,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 10.276561621130428,
+        "holes": 18.512400219759485,
+        "height": 0.1783829778580278,
+        "bumpiness": 0.64855654590614,
+        "wells": 0.11306614565696378,
+        "landing_height": 0.2401062080958025
+      }
+    },
+    {
+      "generation": 18,
+      "best_fitness": 49.0,
+      "mean_fitness": 40.28125,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 19,
+      "best_fitness": 49.0,
+      "mean_fitness": 35.015625,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 20,
+      "best_fitness": 49.0,
+      "mean_fitness": 44.34375,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 21,
+      "best_fitness": 49.0,
+      "mean_fitness": 42.0625,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 22,
+      "best_fitness": 49.0,
+      "mean_fitness": 42.84375,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 23,
+      "best_fitness": 49.0,
+      "mean_fitness": 44.4375,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 24,
+      "best_fitness": 49.0,
+      "mean_fitness": 41.71875,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 25,
+      "best_fitness": 49.0,
+      "mean_fitness": 42.3125,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 26,
+      "best_fitness": 49.0,
+      "mean_fitness": 42.703125,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 27,
+      "best_fitness": 49.0,
+      "mean_fitness": 44.234375,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 28,
+      "best_fitness": 49.0,
+      "mean_fitness": 42.71875,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 29,
+      "best_fitness": 49.0,
+      "mean_fitness": 38.609375,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    },
+    {
+      "generation": 30,
+      "best_fitness": 49.0,
+      "mean_fitness": 43.65625,
+      "best_lines": 31.0,
+      "best_weights": {
+        "lines": 6.759684695269071,
+        "holes": 18.080713851549433,
+        "height": 0.8893370407169571,
+        "bumpiness": 0.5643994467576793,
+        "wells": 0.13559474767915886,
+        "landing_height": 0.2086017889387507
+      }
+    }
+  ],
+  "best_weights": {
+    "lines": 4.6520674045755905,
+    "holes": 20.0,
+    "height": 0.0,
+    "bumpiness": 0.522052880649949,
+    "wells": 0.0,
+    "landing_height": 0.18625906825280142
+  }
+}

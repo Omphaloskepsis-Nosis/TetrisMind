@@ -1,0 +1,43 @@
+{
+  "seed": 42,
+  "backend": "reference",
+  "weights": {
+    "lines": 4.6520674045755905,
+    "holes": 20.0,
+    "height": 0.0,
+    "bumpiness": 0.522052880649949,
+    "wells": 0.0,
+    "landing_height": 0.18625906825280142
+  },
+  "metrics": {
+    "name": "tuned",
+    "seed": 42,
+    "games": 2,
+    "lines_mean": 31.0,
+    "lines_std": 0.0,
+    "score_mean": 3600.0,
+    "score_std": 100.0,
+    "pieces_mean": 80.0,
+    "elapsed_ms_mean": 58.195800000021336,
+    "fitness": 49.0,
+    "backend": "reference",
+    "weights": {
+      "lines": 4.6520674045755905,
+      "holes": 20.0,
+      "height": 0.0,
+      "bumpiness": 0.522052880649949,
+      "wells": 0.0,
+      "landing_height": 0.18625906825280142
+    },
+    "game_lines": [
+      31,
+      31
+    ],
+    "game_scores": [
+      3500,
+      3700
+    ],
+    "average_lines": 31.0,
+    "mean_lines": 31.0
+  }
+}

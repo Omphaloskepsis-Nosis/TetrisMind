@@ -1,0 +1,18 @@
+{
+  "config": {
+    "generations": 30,
+    "population_size": 16,
+    "games_per_candidate": 2,
+    "seed": 42,
+    "workers": 4,
+    "max_pieces": 80,
+    "elite_count": 2,
+    "tournament_size": 3,
+    "mutation_sigma": 0.35,
+    "crossover_rate": 0.7,
+    "backend": "auto",
+    "engine_spec": "contracts:Engine",
+    "policy_spec": "ai.policy:policy"
+  },
+  "purpose": "TetrisMind P4 reproducibility"
+}
