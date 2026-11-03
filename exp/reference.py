@@ -60,14 +60,14 @@ SHAPES = {name: unique_rotations(cells) for name, cells in BASE_SHAPES.items()}
 class Placement:
     board: tuple[int, ...]
     cleared: int
-    landing_height: float
     holes: int
-    aggregate_height: int
     bumpiness: int
-    wells: int
+    aggregate_height: int
+    row_transitions: int
+    col_transitions: int
 
 
-def board_features(board: tuple[int, ...] | list[int]) -> tuple[int, int, int, int]:
+def board_features(board: tuple[int, ...] | list[int]) -> tuple[int, int, int, int, int]:
     heights: list[int] = []
     holes = 0
     for col in range(COLS):
@@ -84,12 +84,28 @@ def board_features(board: tuple[int, ...] | list[int]) -> tuple[int, int, int, i
         heights.append(ROWS - top_row if top_row is not None else 0)
 
     bumpiness = sum(abs(left - right) for left, right in zip(heights, heights[1:]))
-    wells = 0
+    row_transitions = 0
+    for row in board:
+        previous = 1
+        for col in range(COLS):
+            current = 1 if row & (1 << col) else 0
+            if current != previous:
+                row_transitions += 1
+            previous = current
+        if previous == 0:
+            row_transitions += 1
+
+    col_transitions = 0
     for col, height in enumerate(heights):
-        left = heights[col - 1] if col > 0 else ROWS
-        right = heights[col + 1] if col + 1 < COLS else ROWS
-        wells += max(0, min(left, right) - height)
-    return holes, sum(heights), bumpiness, wells
+        previous = 0
+        for row in range(ROWS - height, ROWS):
+            current = 1 if board[row] & (1 << col) else 0
+            if current != previous:
+                col_transitions += 1
+            previous = current
+        if previous == 0:
+            col_transitions += 1
+    return holes, sum(heights), bumpiness, row_transitions, col_transitions
 
 
 def _clear_rows(rows: list[int]) -> tuple[tuple[int, ...], int]:
@@ -129,16 +145,18 @@ def enumerate_placements(board: tuple[int, ...], piece: str) -> list[Placement]:
             if new_board[0] and not cleared:
                 # This placement top-outs immediately and is not useful.
                 continue
-            holes, total_height, bumpiness, wells = board_features(new_board)
+            holes, total_height, bumpiness, row_transitions, col_transitions = board_features(
+                new_board
+            )
             placements.append(
                 Placement(
                     board=new_board,
                     cleared=cleared,
-                    landing_height=max(y + row for row, _ in rotation),
                     holes=holes,
-                    aggregate_height=total_height,
                     bumpiness=bumpiness,
-                    wells=wells,
+                    aggregate_height=total_height,
+                    row_transitions=row_transitions,
+                    col_transitions=col_transitions,
                 )
             )
     return placements
@@ -146,12 +164,12 @@ def enumerate_placements(board: tuple[int, ...], piece: str) -> list[Placement]:
 
 def placement_score(placement: Placement, weights: dict[str, float]) -> float:
     return (
-        float(weights.get("lines", 0.0)) * placement.cleared
-        - float(weights.get("holes", 0.0)) * placement.holes
-        - float(weights.get("height", 0.0)) * placement.aggregate_height
-        - float(weights.get("bumpiness", 0.0)) * placement.bumpiness
-        - float(weights.get("wells", 0.0)) * placement.wells
-        - float(weights.get("landing_height", 0.0)) * placement.landing_height
+        float(weights.get("lines_cleared", 0.0)) * placement.cleared
+        + float(weights.get("holes", 0.0)) * placement.holes
+        + float(weights.get("bumpiness", 0.0)) * placement.bumpiness
+        + float(weights.get("aggregate_height", 0.0)) * placement.aggregate_height
+        + float(weights.get("row_transitions", 0.0)) * placement.row_transitions
+        + float(weights.get("col_transitions", 0.0)) * placement.col_transitions
     )
 
 
@@ -193,7 +211,8 @@ def run_reference_game(
                 item.holes,
                 item.aggregate_height,
                 item.bumpiness,
-                item.wells,
+                item.row_transitions,
+                item.col_transitions,
             ),
         )
         board = chosen.board

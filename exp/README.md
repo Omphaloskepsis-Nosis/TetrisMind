@@ -1,7 +1,7 @@
 # TetrisMind P4：实验调参
 
-P4 负责遗传算法调权重、并行批量对局、指标统计和实验报告。交付版本只包含 P4，
-默认使用确定性内置后端独立运行；也可通过可选适配器接入其他模块。
+P4 负责遗传算法调权重、并行批量对局、指标统计和实验报告。完整项目中默认调用
+P1 的真实规则引擎和 P3 的真实搜索策略；内置后端继续保留用于快速测试与降级。
 
 ## 独立运行
 
@@ -36,7 +36,11 @@ P4 负责遗传算法调权重、并行批量对局、指标统计和实验报�
 ```python
 from exp import evaluate
 
-metrics = evaluate(weights={"lines": 9, "holes": 7}, seed=42, n=10)
+metrics = evaluate(
+    weights={"lines_cleared": 10, "holes": -7},
+    seed=42,
+    n=10,
+)
 print(metrics.lines_mean, metrics.score_mean, metrics.game_lines)
 ```
 
@@ -51,13 +55,13 @@ print(metrics.lines_mean, metrics.score_mean, metrics.game_lines)
 ```text
 exp.runner.evaluate
   -> contracts.Engine(seed=seed).reset()
+  -> contracts.Engine.auto_step(weights)
   -> ai.policy.policy(state, weights)
-  -> contracts.Engine.step(action)
+  -> P1 Game.apply_action(action)
   -> Metrics
 ```
 
-若后续需要与规则引擎和 AI 策略整合，并存在 `ai.policy` 模块，P4 会自动选择
-外部后端。也可显式指定模块：
+完整仓库中存在 `ai.policy` 时，P4 自动选择外部后端。也可显式指定模块：
 
 ```powershell
 .\.venv\Scripts\python.exe -m exp.demo `
@@ -79,17 +83,16 @@ P3 只要支持权重字典即可参与 GA。六个基因及推荐默认值为�
 
 ```json
 {
-  "lines": 9.0,
-  "holes": 7.0,
-  "height": 0.5,
-  "bumpiness": 0.5,
-  "wells": 0.3,
-  "landing_height": 0.1
+  "lines_cleared": 10.0,
+  "holes": -7.0,
+  "bumpiness": -2.0,
+  "aggregate_height": -1.0,
+  "row_transitions": -3.0,
+  "col_transitions": -3.0
 }
 ```
 
-若 P3 使用不同键名，应在 `ai.policy` 内把该字典映射为搜索特征，避免在 P4
-写分支；这是保持接口冻结的关键。
+这些键名与 P3 `features.evaluate_state` 完全一致，GA 可以直接把新权重交给 P3。
 
 ## 测试
 

@@ -1,32 +1,43 @@
-# TetrisMind P4
+# TetrisMind
 
-本仓库当前只包含 P4“实验调参”模块：遗传算法调权重、并行批量对局、指标统计、
-可视化报告和实验产物。
+俄罗斯方块规则引擎、Pygame 人机界面、启发式 AI 和遗传算法调参的完整集成版本。
+
+## 功能
+
+- P1：7-bag、SRS 旋转/踢墙、Hold、T-Spin、计分和消行
+- P2：Pygame 界面、人机切换、回放、倍速和当前方块显示
+- P3：落点枚举、六维特征、双层搜索和可执行策略
+- P4：遗传算法调参、多进程批量对局、指标统计和实验报告
 
 ## 快速运行
 
 ```powershell
-.\.venv\Scripts\python.exe -m exp.demo
+.\.venv\Scripts\python.exe main.py
 ```
 
-默认运行 30 代 GA，并在 `artifacts/p4_demo/` 生成指标、四张图和 HTML 报告。
+默认打开人类玩家界面，`TAB` 在人机模式间切换。其他入口：
 
-本次 30 代固定种子结果已经提交在
-[`exp/results/p4_seed42/report.html`](exp/results/p4_seed42/report.html)，可直接用
-浏览器打开。复现命令：
+![TetrisMind 集成界面](docs/ui_preview.png)
 
 ```powershell
-.\.venv\Scripts\python.exe -m exp.demo `
-  --generations 30 --population 16 --games 2 --seed 42 `
-  --workers 4 --max-pieces 80 --output exp/results/p4_seed42
+.\.venv\Scripts\python.exe main.py --mode ai
+.\.venv\Scripts\python.exe main.py --mode p4 --generations 30
+.\.venv\Scripts\python.exe main.py --mode verify
 ```
 
-结果：默认权重平均消行 30.50、平均得分 3300；GA 调参后平均消行 31.00、
-平均得分 3600。相同 seed 重复运行的权重、逐局结果和每代历史完全一致。
+无窗口验证：
+
+```powershell
+.\.venv\Scripts\python.exe main.py --mode ai --headless --frames 60
+.\.venv\Scripts\python.exe main.py --mode p4 --generations 2 --population 6 --games 1 --max-pieces 20
+```
+
+固定 30 代实验报告位于
+[`exp/results/p4_seed42/report.html`](exp/results/p4_seed42/report.html)。
 
 ## 环境
 
-PyCharm 项目解释器：`.venv/Scripts/python.exe`。依赖安装：
+PyCharm 项目解释器：`.venv/Scripts/python.exe`，依赖为 pygame 和 matplotlib：
 
 ```powershell
 .\.venv\Scripts\python.exe -m pip install -r requirements.txt
@@ -40,10 +51,14 @@ PyCharm 项目解释器：`.venv/Scripts/python.exe`。依赖安装：
 
 ## 目录
 
+- `engine/`：P1 规则引擎
+- `ui/`：P2 渲染、输入与回放
+- `ai/`：P3 特征、搜索与策略
 - `exp/`：P4 批量对局、GA、统计和报告
-- `tests/`：P4 单元测试及外部引擎/策略拼接模拟
-- `exp/results/p4_seed42/`：固定种子实验报告和原始指标
-- `TetrisMind-feature-p4-experiment.zip`：可直接提交的 P4 源码包
+- `contracts.py`：P1 到 P2/P3/P4 的正式适配契约
+- `tests/`：P4 与集成测试
+- `exp/results/p4_seed42/`：固定种子实验报告
+- `TetrisMind-complete.zip`：包含全部四个模块的最终交付包
 
-与真实 P1/P3 拼接时的可选字段、后端切换和权重键名见
+详细热键见 [`TetrisMind_P2_终极版说明书.md`](TetrisMind_P2_终极版说明书.md)，实验接口见
 [`exp/README.md`](exp/README.md)。

@@ -3,62 +3,62 @@
     "name": "baseline",
     "seed": 42,
     "games": 2,
-    "lines_mean": 30.5,
-    "lines_std": 0.5,
-    "score_mean": 3300.0,
-    "score_std": 0.0,
-    "pieces_mean": 80.0,
-    "elapsed_ms_mean": 58.021499999995285,
-    "fitness": 47.0,
-    "backend": "reference",
+    "lines_mean": 2.0,
+    "lines_std": 2.0,
+    "score_mean": 880.0,
+    "score_std": 382.0,
+    "pieces_mean": 34.5,
+    "elapsed_ms_mean": 385.3472499999384,
+    "fitness": 6.4,
+    "backend": "external",
     "weights": {
-      "lines": 9.0,
-      "holes": 7.0,
-      "height": 0.5,
-      "bumpiness": 0.5,
-      "wells": 0.3,
-      "landing_height": 0.1
+      "lines_cleared": 10.0,
+      "holes": -7.0,
+      "bumpiness": -2.0,
+      "aggregate_height": -1.0,
+      "row_transitions": -3.0,
+      "col_transitions": -3.0
     },
     "game_lines": [
-      30,
-      31
+      4,
+      0
     ],
     "game_scores": [
-      3300,
-      3300
+      1262,
+      498
     ],
-    "average_lines": 30.5,
-    "mean_lines": 30.5
+    "average_lines": 2.0,
+    "mean_lines": 2.0
   },
   "tuned": {
     "name": "tuned",
     "seed": 42,
     "games": 2,
-    "lines_mean": 31.0,
-    "lines_std": 0.0,
-    "score_mean": 3600.0,
-    "score_std": 100.0,
-    "pieces_mean": 80.0,
-    "elapsed_ms_mean": 58.195800000021336,
-    "fitness": 49.0,
-    "backend": "reference",
+    "lines_mean": 7.5,
+    "lines_std": 7.5,
+    "score_mean": 2459.0,
+    "score_std": 1895.0,
+    "pieces_mean": 44.0,
+    "elapsed_ms_mean": 488.4651499999677,
+    "fitness": 19.795,
+    "backend": "external",
     "weights": {
-      "lines": 4.6520674045755905,
-      "holes": 20.0,
-      "height": 0.0,
-      "bumpiness": 0.522052880649949,
-      "wells": 0.0,
-      "landing_height": 0.18625906825280142
+      "lines_cleared": 11.058994537897522,
+      "holes": -0.5497769825911147,
+      "bumpiness": -6.923468432468806,
+      "aggregate_height": -2.0404711618128357,
+      "row_transitions": -1.130343851303699,
+      "col_transitions": -0.7002023713965977
     },
     "game_lines": [
-      31,
-      31
+      15,
+      0
     ],
     "game_scores": [
-      3500,
-      3700
+      4354,
+      564
     ],
-    "average_lines": 31.0,
-    "mean_lines": 31.0
+    "average_lines": 7.5,
+    "mean_lines": 7.5
   }
 }

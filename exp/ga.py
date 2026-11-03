@@ -57,17 +57,17 @@ class GAResult:
     config: GAConfig
 
 
-# Every gene is positive. Its ceiling prevents a single feature from dominating
-# merely because it was mutated to an absurd magnitude.
-LOWER_BOUNDS = {name: 0.0 for name in WEIGHT_NAMES}
-UPPER_BOUNDS = {
-    "lines": 20.0,
-    "holes": 20.0,
-    "height": 3.0,
-    "bumpiness": 3.0,
-    "wells": 3.0,
-    "landing_height": 1.0,
+# Positive/negative signs express whether a feature is encouraged or penalized.
+LOWER_BOUNDS = {
+    "lines_cleared": 0.0,
+    "holes": -20.0,
+    "bumpiness": -8.0,
+    "aggregate_height": -4.0,
+    "row_transitions": -12.0,
+    "col_transitions": -12.0,
 }
+UPPER_BOUNDS = {name: 0.0 for name in WEIGHT_NAMES}
+UPPER_BOUNDS["lines_cleared"] = 20.0
 
 
 def _clip(weights: dict[str, float]) -> dict[str, float]:
@@ -194,7 +194,7 @@ def run_ga(
             key=lambda index: (
                 scored[index].fitness,
                 scored[index].lines_mean,
-                -scored[index].weights["holes"],
+                scored[index].weights["lines_cleared"],
             ),
             reverse=True,
         )

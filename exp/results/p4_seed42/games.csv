@@ -1,5 +1,5 @@
 ﻿policy,game,lines,score
-baseline,1,30,3300
-baseline,2,31,3300
-tuned,1,31,3500
-tuned,2,31,3700
+baseline,1,4,1262
+baseline,2,0,498
+tuned,1,15,4354
+tuned,2,0,564

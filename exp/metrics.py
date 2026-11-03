@@ -7,23 +7,22 @@ from typing import Any, Iterable
 
 
 WEIGHT_NAMES = (
-    "lines",
+    "lines_cleared",
     "holes",
-    "height",
     "bumpiness",
-    "wells",
-    "landing_height",
+    "aggregate_height",
+    "row_transitions",
+    "col_transitions",
 )
 
-# These values are intentionally conservative. The GA explores a bounded
-# neighbourhood around them, while P3 may provide its own defaults later.
+# These names and signs match P3's six evaluation features exactly.
 DEFAULT_WEIGHTS: dict[str, float] = {
-    "lines": 9.0,
-    "holes": 7.0,
-    "height": 0.5,
-    "bumpiness": 0.5,
-    "wells": 0.3,
-    "landing_height": 0.1,
+    "lines_cleared": 10.0,
+    "holes": -7.0,
+    "bumpiness": -2.0,
+    "aggregate_height": -1.0,
+    "row_transitions": -3.0,
+    "col_transitions": -3.0,
 }
 
 

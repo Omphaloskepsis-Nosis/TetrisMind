@@ -75,6 +75,20 @@ def run_external_game(
     state = engine.reset()
 
     started = time.perf_counter()
+    if callable(getattr(engine, "auto_step", None)):
+        for _ in range(max_pieces):
+            state = engine.auto_step(weights, time_limit_ms=12.0)
+            if _is_terminal(state, engine):
+                break
+        elapsed_ms = (time.perf_counter() - started) * 1000.0
+        return {
+            "seed": seed,
+            "lines": int(_numeric_state_field(state, engine, ("total_lines", "lines_cleared", "lines"))),
+            "score": int(_numeric_state_field(state, engine, ("score",))),
+            "pieces": int(_numeric_state_field(state, engine, ("pieces", "piece_count"))),
+            "elapsed_ms": elapsed_ms,
+        }
+
     steps = 0
     # Micro-actions mean a piece may take many Engine.step calls. This cap only
     # protects against a NOOP policy; normal games terminate much earlier.
