@@ -23,7 +23,6 @@ def detect_backend() -> str:
 
     try:
         importlib.import_module("ai.policy")
-        importlib.import_module("contracts")
     except (ImportError, ModuleNotFoundError):
         return "reference"
     return "external"
@@ -66,8 +65,6 @@ def run_external_game(
     """Run P1 Engine with P3 policy through the frozen module contract."""
 
     import time
-
-    from contracts import Action
 
     engine_class = _load_callable(engine_spec, "Engine")
     policy = _load_callable(policy_spec, "policy")

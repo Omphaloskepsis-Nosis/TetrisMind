@@ -1,7 +1,7 @@
 # TetrisMind P4：实验调参
 
-P4 负责遗传算法调权重、并行批量对局、指标统计和实验报告。模块既能调用真实的
-P1 引擎与 P3 策略，也能在两者尚未合并时使用确定性内置后端独立运行。
+P4 负责遗传算法调权重、并行批量对局、指标统计和实验报告。交付版本只包含 P4，
+默认使用确定性内置后端独立运行；也可通过可选适配器接入其他模块。
 
 ## 独立运行
 
@@ -44,7 +44,7 @@ print(metrics.lines_mean, metrics.score_mean, metrics.game_lines)
 和调参权重传相同的 `seed/n`，就能做配对比较。非法局数会明确抛出
 `ValueError`。
 
-## 与 P1/P3 拼接
+## 可选的外部模块拼接
 
 实验层的调用关系如下：
 
@@ -56,7 +56,8 @@ exp.runner.evaluate
   -> Metrics
 ```
 
-只要 P1/P3 满足冻结契约，P4 默认会自动选择外部后端。也可显式指定模块：
+若后续需要与规则引擎和 AI 策略整合，并存在 `ai.policy` 模块，P4 会自动选择
+外部后端。也可显式指定模块：
 
 ```powershell
 .\.venv\Scripts\python.exe -m exp.demo `

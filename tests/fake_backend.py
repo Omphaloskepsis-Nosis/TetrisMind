@@ -1,10 +1,13 @@
-"""Minimal external P1/P3 stand-ins used to verify the integration adapter."""
+"""Minimal engine/policy stand-ins used to verify the optional integration adapter."""
 
 from __future__ import annotations
 
 from dataclasses import dataclass
+from enum import Enum, auto
 
-from contracts import Action
+
+class Action(Enum):
+    DOWN = auto()
 
 
 @dataclass

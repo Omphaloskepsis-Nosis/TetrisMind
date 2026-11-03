@@ -1,9 +1,9 @@
-# TetrisMind
+# TetrisMind P4
 
-俄罗斯方块 AI 与遗传算法调参项目。当前仓库包含 P2 渲染交互和 P4 实验调参；
-P1 规则引擎与 P3 AI 决策仍以冻结的 `contracts.py` 接口并行开发。
+本仓库当前只包含 P4“实验调参”模块：遗传算法调权重、并行批量对局、指标统计、
+可视化报告和实验产物。
 
-## P4 快速运行
+## 快速运行
 
 ```powershell
 .\.venv\Scripts\python.exe -m exp.demo
@@ -40,11 +40,10 @@ PyCharm 项目解释器：`.venv/Scripts/python.exe`。依赖安装：
 
 ## 目录
 
-- `contracts.py`：P1-P4 共享契约
-- `ui/`：P2 渲染、输入和回放
 - `exp/`：P4 批量对局、GA、统计和报告
-- `tests/`：P4 单元测试及 P1/P3 拼接模拟
-- `TetrisMind_P2_终极版说明书.md`：P2 使用说明
+- `tests/`：P4 单元测试及外部引擎/策略拼接模拟
+- `exp/results/p4_seed42/`：固定种子实验报告和原始指标
+- `TetrisMind-feature-p4-experiment.zip`：可直接提交的 P4 源码包
 
-P4 与真实 P1/P3 的拼接字段、自动后端切换和权重键名见
+与真实 P1/P3 拼接时的可选字段、后端切换和权重键名见
 [`exp/README.md`](exp/README.md)。
